@@ -1,8 +1,7 @@
-# 🩺 MemoriaMD
+MemoriaMD
 
 **An AI-powered adaptive clinical tutor that transforms static lecture notes into personalized OSCE training.**
 
-Built for the AMD AI Hackathon – Unicorn Track.
 
 ---
 
@@ -123,5 +122,3 @@ FastAPI integration and frontend deployment are the next development stage.
 ## Authors
 
 Seif Ata
-
-AMD AI Hackathon 2026
