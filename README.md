@@ -251,7 +251,10 @@ Each component communicates through structured Pydantic schemas, making the pipe
 - Progress analytics dashboard
 - Long-term student memory
 - Adaptive spaced repetition
+- Streaks, badges, achievements and XP points
+- Group challenges and communities
 - Multi-language support
+
 
 ---
 
