@@ -1,18 +1,17 @@
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-
-# Virtual Environment
+*.egg-info/
 .venv/
 venv/
 
-# Environment variables
+# Environment
 .env
+.env.*
 
-# Jupyter
-.ipynb_checkpoints/
+# Node
+node_modules/
+dist/
 
 # IDE
 .vscode/
@@ -20,18 +19,6 @@ venv/
 
 # OS
 .DS_Store
-Thumbs.db
 
-# Build
-build/
-dist/
-*.egg-info/
-
-# Outputs
-outputs/
-
-# Python cache
-.pytest_cache/
-
-# Logs
-*.log
+# Jupyter
+.ipynb_checkpoints/

@@ -1,17 +1,25 @@
 import json
 
+import tempfile
+import shutil
+from fastapi import UploadFile, File, HTTPException
 from utils.flashcard_schema import FlashcardDeck
 
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
 from utils.review_schema import ReviewSession
 
 from backend.models import (
-    BlueprintRequest,
     CaseRequest,
     PatientChatRequest,
     ExaminerRequest,
+)
+
+from backend.services import (
+    generate_blueprint_from_pdf,
+    generate_mcqs_from_blueprint,
+    generate_flashcards_from_blueprint,
 )
 
 
@@ -73,31 +81,40 @@ def root():
 # -------------------------------
 
 @app.post("/generate-blueprint")
-def generate_blueprint(request: BlueprintRequest):
+async def generate_blueprint(
+    pdf: UploadFile = File(...)
+):
 
-    lecture = extract_pdf_text(request.pdf_path)
+    try:
+        print("Received file:", pdf.filename)
 
-    prompt = load_prompt(
-        "teaching_blueprint.md",
-        LECTURE=lecture,
-    )
+        if not pdf.filename.endswith(".pdf"):
+            raise HTTPException(
+                status_code=400,
+                detail="Only PDF files are supported"
+            )
 
-    blueprint = generate_structured(
-        prompt,
-        TeachingBlueprint,
-    )
+        blueprint = await generate_blueprint_from_pdf(pdf)
 
-    session_id = store.create()
+        session_id = store.create()
 
-    store.save_blueprint(
-        session_id,
-        blueprint.model_dump(),
-    )
+        store.save_blueprint(
+            session_id,
+            blueprint.model_dump(),
+        )
 
-    return {
-        "session_id": session_id,
-        "blueprint": blueprint.model_dump(),
-    }
+        return {
+            "session_id": session_id,
+            "blueprint": blueprint.model_dump(),
+        }
+
+    except Exception as e:
+        print("GENERATE BLUEPRINT ERROR:", e)
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
 
 
 # -------------------------------
@@ -337,6 +354,32 @@ def generate_custom_flashcards(request: ExaminerRequest):
     deck = generate_structured(
         prompt,
         FlashcardDeck,
+    )
+
+    return deck.model_dump()
+
+@app.post("/generate-custom-mcqs-from-pdf")
+async def generate_custom_mcqs_from_pdf(
+    pdf: UploadFile = File(...)
+):
+
+    blueprint = await generate_blueprint_from_pdf(pdf)
+
+    review = generate_mcqs_from_blueprint(
+        blueprint,
+    )
+
+    return review.model_dump()
+
+@app.post("/generate-custom-flashcards-from-pdf")
+async def generate_custom_flashcards_from_pdf(
+    pdf: UploadFile = File(...)
+):
+
+    blueprint = await generate_blueprint_from_pdf(pdf)
+
+    deck = generate_flashcards_from_blueprint(
+        blueprint,
     )
 
     return deck.model_dump()

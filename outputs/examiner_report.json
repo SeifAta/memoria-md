@@ -1,0 +1,51 @@
+{
+  "overall_score": 35,
+  "history_assessment": {
+    "score": 30,
+    "asked_points": [
+      "Presenting complaint",
+      "Duration of symptoms",
+      "Orthopnea"
+    ],
+    "missed_points": [
+      "Paroxysmal nocturnal dyspnea",
+      "Cough characteristics",
+      "Extent of edema",
+      "Impact on daily activities",
+      "Past medical history (HTN, MI, Diabetes, OA)",
+      "Medication adherence",
+      "Recent NSAID use",
+      "Allergy history",
+      "Family history",
+      "Social history (smoking, diet, living situation)"
+    ]
+  },
+  "reasoning_assessment": {
+    "score": 40,
+    "strengths": [
+      "Correctly identified the primary symptoms of heart failure (dyspnea and edema)",
+      "Promptly initiated history taking with open-ended questions"
+    ],
+    "weaknesses": [
+      "Failed to explore the precipitating factors (medication non-adherence and NSAID use) which are critical in this case",
+      "Did not assess for red flags or severity of the current decompensation",
+      "Did not move toward a systematic review of systems or relevant past history"
+    ]
+  },
+  "communication_assessment": {
+    "score": 50,
+    "comments": [
+      "The student was polite and professional",
+      "Questions were clear and easy for the patient to understand",
+      "The encounter was cut short before rapport could be fully established",
+      "Needs to balance closed questions with more comprehensive exploration of the patient's history"
+    ]
+  },
+  "key_recommendations": [
+    "Always perform a thorough medication reconciliation, especially asking about non-adherence and over-the-counter medications like NSAIDs in heart failure patients.",
+    "Ensure a complete review of systems including PND, cough characteristics, and functional impact of symptoms.",
+    "Do not neglect past medical history and social history, as they provide essential context for chronic conditions like heart failure.",
+    "Practice a structured approach to history taking (e.g., SOCRATES for pain, or a standard systems review) to ensure no critical areas are missed.",
+    "In an acute presentation, prioritize identifying precipitating factors and assessing the severity of the patient's distress."
+  ]
+}

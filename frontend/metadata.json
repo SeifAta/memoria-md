@@ -1,0 +1,6 @@
+{
+  "name": "MemoriaMD",
+  "description": "Premium AI-powered clinical reasoning platform that transforms lecture notes into adaptive OSCE simulations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
