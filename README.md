@@ -1,37 +1,53 @@
-# MemoriaMD
+# 🩺 MemoriaMD
 
-**An AI-powered adaptive clinical tutor that transforms static lecture notes into personalized OSCE training.**
+**MemoriaMD** is an AI-powered adaptive clinical learning platform that transforms traditional lecture notes into personalized, interactive medical education experiences.
 
-
----
-
-## The Problem
-
-Medical students often study lecture notes passively and struggle to translate theoretical knowledge into clinical reasoning and patient encounters.
-
-Traditional learning platforms provide static content rather than adaptive practice tailored to each student's weaknesses.
+Instead of passively reading PDFs, students can practice with realistic clinical cases, receive examiner feedback, reinforce weak concepts, and generate personalized study material—all from their own lecture notes.
 
 ---
 
-## Our Solution
+# 🚀 Features
 
-MemoriaMD converts lecture PDFs into an interactive learning experience.
+### 🏥 Interactive Clinical Simulation
 
-The system automatically:
+Upload lecture notes and automatically generate:
 
-- Generates a structured Teaching Blueprint
-- Creates realistic OSCE patient cases
-- Simulates an interactive patient
-- Evaluates the student's clinical performance
-- Generates personalized reinforcement sessions targeting weaknesses
+- Teaching Blueprint
+- Realistic patient case
+- Interactive patient conversation
+- AI examiner evaluation
+- Personalized reinforcement review
 
-Every practice session becomes adaptive.
+Students practice clinical reasoning in an OSCE-style environment rather than memorizing facts.
 
 ---
 
-## AI Pipeline
+### 📚 Custom Study Mode
 
-```text
+Upload any lecture PDF and instantly generate:
+
+- High-quality clinical MCQs
+- Active recall flashcards
+
+Everything is generated directly from the uploaded lecture.
+
+---
+
+### 📊 Personalized Feedback
+
+After every simulated patient encounter, MemoriaMD provides:
+
+- Clinical performance score
+- Strengths
+- Missed findings
+- Areas for improvement
+- Targeted reinforcement questions
+
+---
+
+# 🧠 AI Workflow
+
+```
 Lecture PDF
       │
       ▼
@@ -47,78 +63,200 @@ Interactive Patient Agent
 Examiner Agent
       │
       ▼
-Reinforcement Agent
+Review / Reinforcement Generator
 ```
 
 ---
 
-## Project Structure
+# 🏗 Project Structure
 
 ```
-notebooks/
-├── 01_backend_foundation.ipynb
-├── 02_teaching_blueprint.ipynb
-├── 03_case_generator.ipynb
-├── 04_patient_agent.ipynb
-├── 05_examiner_agent.ipynb
-├── 06_reinforcement_agent.ipynb
-└── 07_full_pipeline_test.ipynb
+memoria-md/
 
-prompts/
-utils/
-sample_data/
-outputs/
+├── backend/
+│   ├── app.py
+│   ├── models.py
+│   ├── services.py
+│   └── session_store.py
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── Dockerfile
+│
+├── prompts/
+│
+├── utils/
+│   ├── providers/
+│   ├── llm.py
+│   ├── pdf.py
+│   ├── prompt_loader.py
+│   └── schemas.py
+│
+├── notebooks/
+│
+├── sample_data/
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Features
+# ⚙️ Tech Stack
 
-- Lecture-aware learning
-- Realistic OSCE simulations
-- Adaptive reinforcement
-- Structured JSON outputs
-- Modular multi-agent architecture
-- LLM-powered evaluation
+### AI
 
----
-
-## Technology
-
-- Python
-- Google Gemini API
+- Gemma 3 27B Instruct
+- Fireworks AI
+- Instructor
 - Pydantic
-- Jupyter
-- GitHub
 
-Planned:
+### Backend
 
 - FastAPI
-- Native.Builder frontend
-- AMD AI deployment
+- Python
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+
+### Infrastructure
+
+- Docker
+- Docker Compose
 
 ---
 
-## Example Workflow
+# ▶️ Running the Project
 
-1. Upload lecture PDF
-2. Generate Teaching Blueprint
-3. Generate patient case
-4. Interview virtual patient
-5. Receive examiner feedback
-6. Receive personalized reinforcement
-7. Repeat with improved performance
+## 1. Clone the repository
 
----
-
-## Repository
-
-The project currently contains the complete AI backend prototype.
-
-FastAPI integration and frontend deployment are the next development stage.
+```bash
+git clone https://github.com/SeifAta/memoria-md.git
+cd memoria-md
+```
 
 ---
 
-## Authors
+## 2. Configure environment variables
 
-Seif Ata
+Create a `.env` file in the project root.
+
+Example:
+
+```env
+LLM_PROVIDER=fireworks
+
+FIREWORKS_API_KEY=YOUR_FIREWORKS_API_KEY
+
+FIREWORKS_MODEL=accounts/fireworks/models/gemma3-27b-it
+
+FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
+```
+
+---
+
+## 3. Run with Docker
+
+```bash
+docker compose up --build
+```
+
+The application will start:
+
+Backend:
+
+```
+http://localhost:8000
+```
+
+Frontend:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 💡 Usage
+
+## Clinical Simulation
+
+1. Upload a lecture PDF.
+2. Generate the Teaching Blueprint.
+3. Start an AI-generated patient encounter.
+4. Interview the virtual patient.
+5. End the encounter.
+6. Receive examiner feedback.
+7. Review personalized reinforcement questions.
+
+---
+
+## Custom Study
+
+1. Open **Custom Study**.
+2. Upload any lecture PDF.
+3. Wait for processing.
+4. Generate:
+   - Clinical MCQs
+   - Flashcards
+
+All study material is generated from the uploaded lecture.
+
+---
+
+# 📸 MVP Features
+
+✅ Lecture-aware Teaching Blueprint
+
+✅ Interactive virtual patient
+
+✅ AI examiner
+
+✅ Personalized review session
+
+✅ Lecture-specific MCQs
+
+✅ Lecture-specific flashcards
+
+✅ Dockerized deployment
+
+---
+
+# 🧩 Architecture
+
+The application follows a modular multi-agent design.
+
+- Teaching Blueprint Agent
+- Case Generator Agent
+- Patient Agent
+- Examiner Agent
+- Review Generator
+- Custom Study Generator
+
+Each component communicates through structured Pydantic schemas, making the pipeline modular and easily extensible.
+
+---
+
+# 🔮 Future Work
+
+- Voice-based patient conversations
+- AI Tutor chat grounded in uploaded lectures
+- Progress analytics dashboard
+- Long-term student memory
+- Adaptive spaced repetition
+- Multi-language support
+
+---
+
+# 👨‍💻 Authors
+
+**Seif Ata**
+
+Built for the **AMD Developer Challenge**.
