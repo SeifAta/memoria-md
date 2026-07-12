@@ -6,3 +6,9 @@ ipykernel
 pymupdf
 pandas
 tqdm
+uvicorn
+fastapi
+python-multipart
+PyMuPDF
+openai
+instructor
