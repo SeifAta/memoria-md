@@ -2,19 +2,19 @@ from pydantic import BaseModel
 from typing import List
 
 
-class MCQ(BaseModel):
+class ReviewMCQ(BaseModel):
     question: str
 
     options: List[str]
 
-    correct_answer: int
+    correct_answer: str
 
     explanation: str
 
-    learning_point: str
+    weakness_targeted: str
 
 
-class ReinforcementSession(BaseModel):
+class ReviewSession(BaseModel):
 
     session_title: str
 
@@ -24,4 +24,4 @@ class ReinforcementSession(BaseModel):
 
     focus_topics: List[str]
 
-    mcqs: List[MCQ]
+    mcqs: List[ReviewMCQ]

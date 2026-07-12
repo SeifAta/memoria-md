@@ -1,7 +1,7 @@
 # 🩺 MemoriaMD
 
 **An AI-powered adaptive clinical tutor that transforms static lecture notes into personalized OSCE training.**
-
+git add README.md
 
 
 

@@ -50,3 +50,10 @@ class TeachingBlueprint(BaseModel):
     prevention: List[str]
     
     lecture_emphasis: List[str]
+
+
+class ExaminerRequest(BaseModel):
+    session_id: str
+
+class ReinforcementRequest(BaseModel):
+    session_id: str
