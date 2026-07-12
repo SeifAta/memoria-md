@@ -19,16 +19,40 @@ client = instructor.from_openai(
     mode=instructor.Mode.JSON,
 )
 
-MODEL = os.getenv("FIREWORKS_MODEL")
+MODEL = os.getenv(
+    "FIREWORKS_MODEL",
+    "accounts/fireworks/models/gemma3-27b-it",
+)
 
 
-def generate(prompt):
-    raise NotImplementedError(
-        "Fireworks provider will be enabled later."
+def generate(prompt: str) -> str:
+
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        temperature=0.3,
     )
+
+    return response.choices[0].message.content
 
 
 def generate_structured(prompt, schema):
-    raise NotImplementedError(
-        "Fireworks provider will be enabled later."
+
+    response = client.chat.completions.create(
+        model=MODEL,
+        response_model=schema,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        temperature=0.3,
     )
+
+    return response
