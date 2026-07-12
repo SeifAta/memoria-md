@@ -2,7 +2,7 @@ import os
 
 provider = os.getenv(
     "LLM_PROVIDER",
-    "gemini",
+    "fireworks",
 ).lower()
 
 if provider == "fireworks":
