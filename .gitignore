@@ -1,24 +1,21 @@
-# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
 venv/
 
-# Environment
 .env
 .env.*
 
-# Node
 node_modules/
 dist/
 
-# IDE
 .vscode/
 .idea/
 
-# OS
 .DS_Store
 
-# Jupyter
+
 .ipynb_checkpoints/
+
+*.log
