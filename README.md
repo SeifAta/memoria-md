@@ -1,18 +1,18 @@
-🩺 MemoriaMD
+# 🩺 MemoriaMD
 
-MemoriaMD transforms static medical lecture notes into interactive clinical training.
+**MemoriaMD** transforms static medical lecture notes into **interactive clinical training**.
 
-Instead of passively reading PDFs or relying on generic AI chatbots, students practice with realistic AI-generated patients, receive structured examiner feedback, and reinforce weak concepts through personalized study material—all grounded in their own lecture notes.
+Instead of passively reading PDFs or relying on generic AI chatbots, students practice with realistic AI-generated patients, receive structured examiner feedback, and reinforce weak concepts through personalized study material—all grounded in **their own lecture notes**.
 
-Built for the AMD Developer Challenge, MemoriaMD combines a modular multi-agent architecture with Gemma 3 27B Instruct to bridge the gap between classroom learning and real clinical reasoning.
+Built for the **AMD Developer Challenge**, MemoriaMD combines a modular multi-agent architecture with **Gemma 3 27B Instruct** to bridge the gap between classroom learning and real clinical reasoning.
 
 ---
 
-🎯 Why MemoriaMD?
+# 🎯 Why MemoriaMD?
 
 Most AI study tools summarize content or answer questions.
 
-MemoriaMD creates clinical experiences.
+MemoriaMD creates **clinical experiences**.
 
 Students don't simply ask an AI about heart failure—they interview a virtual patient presenting with heart failure, perform history taking, receive examiner feedback, and immediately revise the concepts they struggled with using personalized MCQs and flashcards.
 
@@ -20,9 +20,9 @@ Every simulation is generated directly from the uploaded lecture, making practic
 
 ---
 
-🚀 Features
+# 🚀 Features
 
-🏥 Interactive Clinical Simulation
+## 🏥 Interactive Clinical Simulation
 
 Upload lecture notes and automatically generate:
 
@@ -36,7 +36,7 @@ Students practice clinical reasoning in an OSCE-style environment rather than me
 
 ---
 
-📚 Custom Study Mode
+## 📚 Custom Study Mode
 
 Upload any lecture PDF and instantly generate:
 
@@ -47,7 +47,7 @@ Everything is generated directly from the uploaded lecture.
 
 ---
 
-📊 Personalized Feedback
+## 📊 Personalized Feedback
 
 After every simulated patient encounter, MemoriaMD provides:
 
@@ -59,8 +59,9 @@ After every simulated patient encounter, MemoriaMD provides:
 
 ---
 
-🧠 AI Workflow
+# 🧠 AI Workflow
 
+```text
 Lecture PDF
       │
       ▼
@@ -79,11 +80,13 @@ Examiner Agent
 Review / Reinforcement Generator
          ├── Clinical MCQs
          └── Flashcards
+```
 
 ---
 
-🏗 Project Structure
+# 🏗️ Project Structure
 
+```text
 memoria-md/
 
 ├── backend/
@@ -113,39 +116,40 @@ memoria-md/
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
-⚙️ Tech Stack
+# ⚙️ Tech Stack
 
-AI
+### AI
 
 - Gemma 3 27B Instruct
 - Fireworks AI
 - Instructor
 - Pydantic
 
-Backend
+### Backend
 
 - FastAPI
 - Python
 
-Frontend
+### Frontend
 
 - React
 - TypeScript
 - Vite
 
-Infrastructure
+### Infrastructure
 
 - Docker
 - Docker Compose
 
 ---
 
-⚡ Gemma & AMD Integration
+# 🚀 Gemma & AMD Integration
 
-MemoriaMD is powered by Gemma 3 27B Instruct through Fireworks AI, enabling high-quality reasoning across every stage of the learning pipeline.
+MemoriaMD is powered by **Gemma 3 27B Instruct** through **Fireworks AI**, enabling high-quality reasoning across every stage of the learning pipeline.
 
 Gemma powers:
 
@@ -157,27 +161,30 @@ Gemma powers:
 - Clinical MCQ generation
 - Flashcard generation
 
-Structured outputs are enforced using Instructor + Pydantic, ensuring every AI component returns validated JSON objects for reliable downstream processing.
+Structured outputs are enforced using **Instructor + Pydantic**, ensuring every AI component returns validated JSON objects for reliable downstream processing.
 
-The project is designed for deployment on AMD-powered AI infrastructure, with future deployment planned on AMD Developer Cloud.
+The project is designed for deployment on **AMD-powered AI infrastructure**, with future deployment planned on **AMD Developer Cloud**.
 
 ---
 
-▶️ Running the Project
+# ▶️ Running the Project
 
-1. Clone the repository
+## 1. Clone the repository
 
+```bash
 git clone https://github.com/SeifAta/memoria-md.git
 cd memoria-md
+```
 
 ---
 
-2. Configure environment variables
+## 2. Configure environment variables
 
-Create a ".env" file in the project root.
+Create a `.env` file in the project root.
 
 Example:
 
+```env
 LLM_PROVIDER=fireworks
 
 FIREWORKS_API_KEY=YOUR_FIREWORKS_API_KEY
@@ -185,32 +192,41 @@ FIREWORKS_API_KEY=YOUR_FIREWORKS_API_KEY
 FIREWORKS_MODEL=accounts/fireworks/models/gemma-3-27b-it
 
 FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
+```
 
 ---
 
-3. Run with Docker
+## 3. Run with Docker
 
+```bash
 docker compose up --build
+```
 
-The application will start:
+The application will start at:
 
-Backend
+**Backend**
 
+```
 http://localhost:8000
+```
 
-Frontend
+**Frontend**
 
+```
 http://localhost:3000
+```
 
-Interactive FastAPI documentation is also available at:
+Interactive FastAPI documentation is available at:
 
+```
 http://localhost:8000/docs
+```
 
 ---
 
-💡 Usage
+# 💡 Usage
 
-Clinical Simulation
+## Clinical Simulation
 
 1. Upload a lecture PDF.
 2. Generate the Teaching Blueprint.
@@ -222,9 +238,9 @@ Clinical Simulation
 
 ---
 
-Custom Study
+## Custom Study
 
-1. Open Custom Study.
+1. Open **Custom Study**.
 2. Upload any lecture PDF.
 3. Wait for processing.
 4. Generate:
@@ -233,29 +249,23 @@ Custom Study
 
 All study material is generated directly from the uploaded lecture.
 
-A sample lecture is included in the sample_data/ directory to quickly experience the complete workflow.
+A sample lecture is included in the **sample_data/** directory to quickly experience the complete workflow.
 
 ---
 
-📸 MVP Features
+# ✅ MVP Features
 
-✅ Lecture-aware Teaching Blueprint
-
-✅ Interactive virtual patient
-
-✅ AI examiner
-
-✅ Personalized review session
-
-✅ Lecture-specific MCQs
-
-✅ Lecture-specific flashcards
-
-✅ Dockerized deployment
+- ✅ Lecture-aware Teaching Blueprint
+- ✅ Interactive virtual patient
+- ✅ AI examiner
+- ✅ Personalized review session
+- ✅ Lecture-specific MCQs
+- ✅ Lecture-specific flashcards
+- ✅ Dockerized deployment
 
 ---
 
-🧩 Architecture
+# 🧩 Architecture
 
 MemoriaMD follows a modular multi-agent architecture, where each AI component performs a dedicated task within the clinical learning workflow.
 
@@ -268,19 +278,19 @@ Agents include:
 - Review Generator
 - Custom Study Generator
 
-Each component communicates through structured Pydantic schemas, providing reliable, schema-validated outputs while keeping the pipeline modular and easily extensible.
+Each component communicates through structured **Pydantic schemas**, providing reliable, schema-validated outputs while keeping the pipeline modular and easily extensible.
 
 ---
 
-⚠️ Educational Disclaimer
+# ⚠️ Educational Disclaimer
 
-MemoriaMD is intended exclusively for medical education and clinical skills training.
+MemoriaMD is intended exclusively for **medical education and clinical skills training**.
 
-It is not intended to provide medical advice, diagnose patients, or support real-world clinical decision-making.
+It is **not** intended to provide medical advice, diagnose patients, or support real-world clinical decision-making.
 
 ---
 
-🔮 Future Work
+# 🔮 Future Work
 
 - Voice-based patient conversations
 - AI Tutor grounded in uploaded lectures
@@ -292,8 +302,8 @@ It is not intended to provide medical advice, diagnose patients, or support real
 
 ---
 
-👨‍💻 Author
+# 👨‍💻 Author
 
-Seif Ata
+**Seif Ata**
 
-Built for the AMD Developer Challenge.
+Built for the **AMD Developer Challenge** to reimagine medical education through interactive, AI-powered clinical learning.
