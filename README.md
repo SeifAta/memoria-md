@@ -306,4 +306,4 @@ It is **not** intended to provide medical advice, diagnose patients, or support 
 
 **Seif Ata**
 
-Built for the **AMD Developer Challenge** to reimagine medical education through interactive, AI-powered clinical learning.
+Built for the **AMD Developer Hackathon**.
